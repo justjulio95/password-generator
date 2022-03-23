@@ -30,8 +30,12 @@ var pW = {
 */
 
 //var length = prompt("How long would you like your password to be? (Please pick a number between 8 and 128)");
+//ask about how to make sure the input is a number
+
 var askLength = function() {
   var length = prompt("How long would you like your password to be? (Please pick a number between 8 and 128)");
+
+  length = parseInt(length);
 
   if(length < 8 || length > 128) {
     alert("You did not enter an appropriate value. Please try again.");
@@ -54,6 +58,7 @@ var askUpper = function() {
   } else{
     alert("UPPERCASE letters WILL NOT be included.")
     pW.characters += ''
+    console.log(pW.characters);
     //return false;
   }
 };
@@ -81,77 +86,6 @@ var askNumbs = function() {
 
   if (checkNumbs) {
     alert("NUMBERS will be included.");
-    return true;
-  } else {
-    alert("NUMBERS WILL NOT be included.");
-    return false;
-  }
-};
-//var checkSpecial = confirm("Would you like your password to include SPECIAL characters?");
-var askSpecial = function() {
-  checkSpecial = confirm("Would you like your password to include SPECIAL characters?");
-
-  if (checkSpecial) {
-    alert("SPECIAL characters will be included.");
-    return true;
-  } else {
-    alert("SPECIAL characters WILL NOT be included.");
-    return false;
-  }
-};
-
-var generatePassword = function() {
-
-  pW.reset();
-
-  //askLength();
-  var length = prompt("How long would you like your password to be? (Please pick a number between 8 and 128)");
-
-  length = parseInt(length);
-
-  if(length < 8 || length > 128) {
-    alert("You did not enter an appropriate value. Please try again.");
-    askLength();
-  } else {
-    pW.length = length;
-    console.log(pW.length);
-  }
-
-  //askUpper();
-  var checkUpper = confirm("Would you like your password to include UPPERCASE letters?");
-  // If yes (TRUE) return true;
-  if (checkUpper) {
-    alert("UPPERCASE letters will be included.");
-    pW.characters += alphaUpper;
-    console.log(pW.characters);
-    //return true;
-  } else{
-    alert("UPPERCASE letters WILL NOT be included.")
-    pW.characters += ''
-    console.log(pW.characters);
-    //return false;
-  }
-
-  //askLower();
-  var checkLower = confirm("Would you like your password to include LOWERCASE letters?");
-
-  if (checkLower) {
-    alert("LOWERCASE letters will be included.");
-    pW.characters += alphaLower;
-    console.log(pW.characters);
-    //return true;
-  } else {
-    alert("LOWERCASE letters WILL NOT be included.");
-    pW.characters += ''
-    console.log(pW.characters);
-    //return false;
-  }
-
-  //askNumbs();
-  var checkNumbs = confirm("Would you like your password to include NUMBERS?");
-
-  if (checkNumbs) {
-    alert("NUMBERS will be included.");
     pW.characters += numbers;
     console.log(pW.characters);
     //return true;
@@ -161,8 +95,9 @@ var generatePassword = function() {
     console.log(pW.characters);
     //return false;
   }
-
-  //askSpecial()
+};
+//var checkSpecial = confirm("Would you like your password to include SPECIAL characters?");
+var askSpecial = function() {
   checkSpecial = confirm("Would you like your password to include SPECIAL characters?");
 
   if (checkSpecial) {
@@ -175,10 +110,19 @@ var generatePassword = function() {
     pW.characters += ''
     //return false;
   }
+};
+
+var generatePassword = function() {
+
+  pW.reset();
+  askLength();
+  askUpper();
+  askLower();
+  askNumbs();
+  askSpecial();
 
   //declare empty password variable
   var password = '';
-  debugger;
 
   //iterate through the pW.characters value
   for (var i = 0; i < pW.length; i++) {
