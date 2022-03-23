@@ -35,9 +35,10 @@ var pW = {
 var askLength = function() {
   var length = prompt("How long would you like your password to be? (Please pick a number between 8 and 128)");
 
-  length = parseInt(length);
+  //if(isNaN(parseInt(value)){.... not a number code here ... }
+  //length = parseInt(length);
 
-  if(length < 8 || length > 128) {
+  if (isNaN(parseInt(length)) || (length < 8 || length > 128)) {
     alert("You did not enter an appropriate value. Please try again.");
     askLength();
   } else {
