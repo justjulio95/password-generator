@@ -29,15 +29,10 @@ var pW = {
   - Ask user if they want SPECIAL CHARACTERS
 */
 
-//var length = prompt("How long would you like your password to be? (Please pick a number between 8 and 128)");
-//ask about how to make sure the input is a number
-
 var askLength = function() {
   var length = prompt("How long would you like your password to be? (Please pick a number between 8 and 128)");
 
-  //if(isNaN(parseInt(value)){.... not a number code here ... }
-  //length = parseInt(length);
-
+  //Check that input is a number!
   if (isNaN(parseInt(length)) || (length < 8 || length > 128)) {
     alert("You did not enter an appropriate value. Please try again.");
     askLength();
@@ -47,7 +42,7 @@ var askLength = function() {
   }
 };
 
-//var checkUpper = confirm("Would you like your password to include UPPERCASE letters?");
+
 var askUpper = function() {
   var checkUpper = confirm("Would you like your password to include UPPERCASE letters?");
   // If yes (TRUE) return true;
@@ -64,7 +59,7 @@ var askUpper = function() {
   }
 };
 
-//var checkLower = confirm("Would you like your password to include LOWERCASE letters?");
+
 var askLower = function() {
   var checkLower = confirm("Would you like your password to include LOWERCASE letters?");
 
@@ -81,7 +76,7 @@ var askLower = function() {
   }
 };
 
-//var checkNumbs = confirm("Would you like your password to include NUMBERS?");
+
 var askNumbs = function() {
   var checkNumbs = confirm("Would you like your password to include NUMBERS?");
 
@@ -97,7 +92,7 @@ var askNumbs = function() {
     //return false;
   }
 };
-//var checkSpecial = confirm("Would you like your password to include SPECIAL characters?");
+
 var askSpecial = function() {
   checkSpecial = confirm("Would you like your password to include SPECIAL characters?");
 
