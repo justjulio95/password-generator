@@ -32,7 +32,7 @@ var pW = {
 var askLength = function() {
   var length = prompt("How long would you like your password to be? (Please pick a number between 8 and 128)");
 
-  //Check that input is a number!
+  //Check that input is a number
   if (isNaN(parseInt(length)) || (length < 8 || length > 128)) {
     alert("You did not enter an appropriate value. Please try again.");
     askLength();
@@ -50,12 +50,6 @@ var askUpper = function() {
     alert("UPPERCASE letters will be included.");
     pW.characters += alphaUpper;
     console.log(pW.characters);
-    //return true;
-  } else{
-    alert("UPPERCASE letters WILL NOT be included.")
-    pW.characters += ''
-    console.log(pW.characters);
-    //return false;
   }
 };
 
@@ -67,12 +61,6 @@ var askLower = function() {
     alert("LOWERCASE letters will be included.");
     pW.characters += alphaLower;
     console.log(pW.characters);
-    //return true;
-  } else {
-    alert("LOWERCASE letters WILL NOT be included.");
-    pW.characters += ''
-    console.log(pW.characters);
-    //return false;
   }
 };
 
@@ -84,13 +72,7 @@ var askNumbs = function() {
     alert("NUMBERS will be included.");
     pW.characters += numbers;
     console.log(pW.characters);
-    //return true;
-  } else {
-    alert("NUMBERS WILL NOT be included.");
-    pW.characters += ''
-    console.log(pW.characters);
-    //return false;
-  }
+  } 
 };
 
 var askSpecial = function() {
@@ -100,15 +82,11 @@ var askSpecial = function() {
     alert("SPECIAL characters will be included.");
     pW.characters += special;
     console.log(pW.characters);
-    //return true;
-  } else {
-    alert("SPECIAL characters WILL NOT be included.");
-    pW.characters += ''
-    //return false;
   }
 };
 
 var generatePassword = function() {
+  debugger;
 
   pW.reset();
   askLength();
