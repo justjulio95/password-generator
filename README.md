@@ -4,6 +4,7 @@ This is my script for the password generator assignment. In it are functions tha
 
 ## Languages Used
 * JavaScript
+* Css
 * HTML
 
 ## Photo
