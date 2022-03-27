@@ -7,10 +7,13 @@
     - Special characters
 */
 
+// Create variables for uppercase/lowercase letters, numbers, and special characters
 var alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var alphaLower = alphaUpper.toLowerCase();
 var numbers = "0123456789";
 var special = "!#$%&()*+,-./:;<=>?@[]^_`{|}~";
+
+// create a pW object that contains the length and empty string of the yet to be password
 var pW = {
   length: 0,
   characters: '',
@@ -29,64 +32,64 @@ var pW = {
   - Ask user if they want SPECIAL CHARACTERS
 */
 
+//Function to ask for the length of the users password
 var askLength = function() {
   var length = prompt("How long would you like your password to be? (Please pick a number between 8 and 128)");
 
-  //Check that input is a number
+  //Check that input is a number and that that number is valid
   if (isNaN(parseInt(length)) || (length < 8 || length > 128)) {
     alert("You did not enter an appropriate value. Please try again.");
     askLength();
   } else {
+    // set user selected length to pW's length
     pW.length = length;
-    console.log(pW.length);
   }
 };
 
-
+// ask if user wants to include uppercase letters
 var askUpper = function() {
   var checkUpper = confirm("Would you like your password to include UPPERCASE letters?");
-  // If yes (TRUE) return true;
+  // If yes (TRUE)
   if (checkUpper) {
     alert("UPPERCASE letters will be included.");
+    // add alphaUpper var to the string of characters
     pW.characters += alphaUpper;
-    console.log(pW.characters);
   }
 };
 
-
+// ask if user wants to include lowercase letters
 var askLower = function() {
   var checkLower = confirm("Would you like your password to include LOWERCASE letters?");
-
+  // If yes (true)
   if (checkLower) {
     alert("LOWERCASE letters will be included.");
+    // add alphaLower var to the string of characters
     pW.characters += alphaLower;
-    console.log(pW.characters);
   }
 };
 
-
+// ask if user wants to include numbers
 var askNumbs = function() {
   var checkNumbs = confirm("Would you like your password to include NUMBERS?");
-
   if (checkNumbs) {
     alert("NUMBERS will be included.");
+    // add numbers var to the string of characters
     pW.characters += numbers;
-    console.log(pW.characters);
   } 
 };
 
+// ask if user wants to include special characters
 var askSpecial = function() {
   checkSpecial = confirm("Would you like your password to include SPECIAL characters?");
 
   if (checkSpecial) {
     alert("SPECIAL characters will be included.");
+    // add special var to the string of characters
     pW.characters += special;
-    console.log(pW.characters);
   }
 };
 
 var generatePassword = function() {
-  debugger;
 
   pW.reset();
   askLength();
